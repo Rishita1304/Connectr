@@ -38,6 +38,7 @@
     background-color: white;
     border-radius: 10px;
     display: flex;
+    width: 70%;
     flex-direction: column;
     justify-content: space-around;
 }
@@ -46,7 +47,7 @@
     height: 50px;
     border-radius: 10px;
     border: 1px solid gray;
-    font-size: 18px;
+    font-size: 15px;
     padding-left: 20px;
 }
 
@@ -55,32 +56,43 @@
 }
 
 .loginButton{
-    height: 50px;
+    height: 40px;
     border-radius: 10px;
     border: none;
     background-color: #1775ee;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     cursor: pointer;
 }
 .loginButton:hover{
   background-color: #0954b6;
 }
+.loginButton:disabled{
+  cursor: not-allowed;
+}
 .loginForgot{
     text-align: center;
     color: #1775ee;
 }
 
-.loginRegisterButton{
+.loginRegisterButtonn{
     width: 60%;
     align-self: center;
-    height: 50px;
+    /* height: 50px; */
     border-radius: 10px;
     border: none;
-    background-color: #42b72a;
-    color: white;
-    font-size: 20px;
+    background-color: white;
+    color: #42b72a;
+    font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.loginRegisterButtonn:disabled{
+  display: none;
+}
+
+.loginRegisterButtonn:hover{
+  color: #1e8509;
 }

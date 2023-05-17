@@ -1,25 +1,44 @@
+import { useContext, useRef } from "react";
 import "./login.css";
+import { LoginCalls } from "../../apiCalls";
+import { AuthContext } from "../../context/AuthContext";
+import { CircularProgress } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 export default function Login() {
+
+  const username = useRef();
+  const password = useRef();
+
+  const {user, isFetching, error, dispatch} = useContext(AuthContext);
+
+const handleClick =(e) => {
+  e.preventDefault();
+  LoginCalls({username: username.current.value,password: password.current.value}, dispatch )
+}
+
+console.log(user);
   return (
     <div className="login">
       <div className="loginWrapper">
         <div className="loginLeft">
-          <h3 className="loginLogo">Lamasocial</h3>
+          <h3 className="loginLogo">Connectr</h3>
           <span className="loginDesc">
-            Connect with friends and the world around you on Lamasocial.
+            Connect with friends and the world around you!
           </span>
         </div>
         <div className="loginRight">
-          <div className="loginBox">
-            <input placeholder="Email" className="loginInput" />
-            <input placeholder="Password" className="loginInput" />
-            <button className="loginButton">Log In</button>
+          <form className="loginBox" onSubmit={handleClick}>
+            <input placeholder="Username" required className="loginInput" ref={username}/>
+            <input type="password" placeholder="Password" minLength={6} className="loginInput" required ref={password} />
+            <button className="loginButton" type="submit" disabled={isFetching}>{isFetching? <CircularProgress color="while" size="20px"/> : "Log In"}</button>
             <span className="loginForgot">Forgot Password?</span>
-            <button className="loginRegisterButton">
-              Create a New Account
+            <Link to='/register'>
+
+            <button className="loginRegisterButtonn" disabled={isFetching}> Create a new acoount
             </button>
-          </div>
+            </Link>
+          </form>
         </div>
       </div>
     </div>
