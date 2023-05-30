@@ -6,6 +6,7 @@ import Rightbar from "../../components/rightbar/Rightbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
+import { publicRequest } from "../../Request";
 
 export default function Profile() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER
@@ -16,7 +17,7 @@ export default function Profile() {
   useEffect(()=>{
     const fetchUser = async () => {
 
-      const res =await axios.get(`http://localhost:8800/api/user/?username=${username}`);
+      const res =await publicRequest.get(`api/user/?username=${username}`);
       console.log(res);
       setUsers(res.data)
     };

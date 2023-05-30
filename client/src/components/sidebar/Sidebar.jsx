@@ -10,10 +10,14 @@ import {
   Event,
   School,
 } from "@material-ui/icons";
-import { Users } from "../../dummyData";
-import CloseFriend from "../closeFriend/CloseFriend";
 
 export default function Sidebar() {
+
+  const handleeClick = ()=>{
+    localStorage.clear();
+    window.location.reload();
+  }
+
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -55,13 +59,13 @@ export default function Sidebar() {
             <span className="sidebarListItemText">Courses</span>
           </li>
         </ul>
-        <button className="sidebarButton">Show More</button>
+        <button className="sidebarButton" onClick={handleeClick}>Logout</button>
         <hr className="sidebarHr" />
-        <ul className="sidebarFriendList">
+        {/* <ul className="sidebarFriendList">
           {Users.map((u) => (
             <CloseFriend key={u.id} user={u} />
           ))}
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

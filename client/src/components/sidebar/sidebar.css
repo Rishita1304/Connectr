@@ -37,11 +37,16 @@
 }
 
 .sidebarButton {
-  width: 150px;
+  width: 120px;
   border: none;
   padding: 10px;
   border-radius: 5px;
   font-weight: 500;
+  font-size: 15px;
+}
+.sidebarButton:hover{
+  background-color: #e2dede;
+  cursor: pointer;
 }
 
 .sidebarHr {

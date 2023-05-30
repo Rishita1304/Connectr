@@ -6,6 +6,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
+import { publicRequest } from "../../Request";
 
 export default function Rightbar({ users }) {
 
@@ -14,14 +15,14 @@ export default function Rightbar({ users }) {
   const [friends, setFriends] = useState([]);
   const { user: currentUser, dispatch } = useContext(AuthContext);
   const [followed, setFollowed] = useState(
-    currentUser.followings.includes(users?._id)
+    currentUser?.followings?.includes(users?._id)
   );
   // console.log(users._id);
 
   useEffect(()=>{
     const getFriends = async () =>{
       try{
-        const friendList = await axios.get("http://localhost:8800/api/user/friends/" + users?._id);
+        const friendList = await publicRequest.get("api/user/friends/" + users?._id);
         setFriends(friendList.data);
         console.log(friendList.data);
       }catch(err){

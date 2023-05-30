@@ -6,6 +6,7 @@ import axios from "axios";
 import {format} from 'timeago.js'
 import {Link} from 'react-router-dom'
 import {AuthContext} from "../../context/AuthContext.js"
+import { publicRequest } from "../../Request";
 
 export default function Post({ post }) {
   const [like,setLike] = useState(post.likes.length)
@@ -21,7 +22,7 @@ export default function Post({ post }) {
 
   useEffect(()=>{
     const fetchUser = async () => {
-      const res =await axios.get(`http://localhost:8800/api/user?userId=${post.userId}`);
+      const res =await publicRequest.get(`api/user?userId=${post.userId}`);
       console.log(res);
       setUsers(res.data)
     };
@@ -30,7 +31,7 @@ export default function Post({ post }) {
 
   const likeHandler =()=>{
     try{
-      axios.put("http://localhost:8800/api/post/" + post._id + "/like", {userId: currentUser._id})
+      publicRequest.put("api/post/" + post._id + "/like", {userId: currentUser._id})
     }catch(err){
 
     }

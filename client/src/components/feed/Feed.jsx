@@ -5,6 +5,7 @@ import { Posts } from "../../dummyData";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
+import { publicRequest } from "../../Request";
 
 export default function Feed({username}) {
   const [posts, setPosts] = useState([]);
@@ -13,8 +14,8 @@ export default function Feed({username}) {
   useEffect(()=>{
     const fetchPost = async () => {
       const res = username 
-      ? await axios.get("http://localhost:8800/api/post/profile/" + username) 
-      : await axios.get("http://localhost:8800/api/post/timeline/" + user._id)
+      ? await publicRequest.get("api/post/profile/" + username) 
+      : await publicRequest.get("api/post/timeline/" + user?._id)
       console.log(res);
       setPosts(
         res.data.sort((p1, p2) => {
@@ -23,7 +24,7 @@ export default function Feed({username}) {
       )
     };
     fetchPost();
-  },[username, user._id])
+  },[username, user?._id])
   return (
     <div className="feed">
       <div className="feedWrapper">
