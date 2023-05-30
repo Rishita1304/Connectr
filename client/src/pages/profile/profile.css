@@ -48,3 +48,13 @@
 .profileRightBottom{
     display: flex;
 }
+
+@media screen and (max-width:480px) {
+    .profile{
+        flex-direction: column-reverse;
+    }
+    .profileRightBottom{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

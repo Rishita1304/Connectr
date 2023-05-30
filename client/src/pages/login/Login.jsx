@@ -23,9 +23,9 @@ console.log(user);
       <div className="loginWrapper">
         <div className="loginLeft">
           <h3 className="loginLogo">Connectr</h3>
-          <span className="loginDesc">
+          <div className="loginDesc">
             Connect with friends and the world around you!
-          </span>
+          </div>
         </div>
         <div className="loginRight">
           <form className="loginBox" onSubmit={handleClick}>

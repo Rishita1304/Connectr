@@ -94,3 +94,15 @@
   object-fit: cover;
   cursor: pointer;
 }
+
+@media screen and (max-width:480px) {
+  .topbarContainer {
+    
+  }
+  .topbarLinks, .topbarIcons{
+    display: none;
+  }
+  .logo{
+    margin-right: 20px;
+  }
+}

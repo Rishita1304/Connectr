@@ -60,3 +60,10 @@
 }
 
 
+@media screen and (max-width:500px) {
+  .sidebar{
+    position: relative;
+    top:0px;
+    width: 100%;
+  }
+}

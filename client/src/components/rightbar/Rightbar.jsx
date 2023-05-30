@@ -52,7 +52,7 @@ export default function Rightbar({ users }) {
 
   const HomeRightbar = () => {
     return (
-      <>
+      <div className="right">
         <div className="birthdayContainer">
           <img className="birthdayImg" src="assets/gift.png" alt="" />
           <span className="birthdayText">
@@ -66,19 +66,21 @@ export default function Rightbar({ users }) {
             <Online key={u.id} user={u} />
           ))}
         </ul>
-      </>
+      </div>
     );
   };
 
   const ProfileRightbar = () => {
     return (
       <>
-       {users.username !== currentUser.username && (
+       {users?.username !== currentUser?.username && (
           <button className="rightbarFollowButton" onClick={handleClick}>
             {followed ? "Unfollow" : "Follow"}
             {followed ? <Remove /> : <Add />}
           </button>
         )}
+        <div className="profRight">
+
         <h4 className="rightbarTitle">User information</h4>
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
@@ -109,6 +111,7 @@ export default function Rightbar({ users }) {
           </div>
               </Link>
             ))}
+            </div>
         </div>
       </>
     );

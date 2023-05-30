@@ -96,3 +96,33 @@
 .loginRegisterButtonn:hover{
   color: #1e8509;
 }
+
+@media screen and (max-width:480px) {
+  .loginWrapper{
+    flex-direction: column;
+  }
+  .loginLogo{
+    display: flex;
+    margin-top: -70px;
+    align-items: center;
+    justify-content: center;
+  }
+  .loginDesc{
+    font-size: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .loginRight{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .loginWrapper {
+    width: 90%;
+    height: 90%;
+    display: flex;
+  }
+}
