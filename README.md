@@ -25,6 +25,3 @@ Once the Social Media Website is set up, users can perform the following actions
 - Create posts and share text, photos, videos, or links with their connections.
 - Like posts from other users.
 - Send private messages to other users or participate in group chats.
-
-## Site Link -
-### https://connectr.onrender.com
