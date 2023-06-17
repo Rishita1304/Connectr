@@ -17,12 +17,12 @@ export default function Rightbar({ users }) {
   const [followed, setFollowed] = useState(
     currentUser?.followings?.includes(users?._id)
   );
-  // console.log(users._id);
+  
 
   useEffect(()=>{
     const getFriends = async () =>{
       try{
-        const friendList = await publicRequest.get("api/user/friends/" + users?._id);
+        const friendList = await publicRequest.get("user/friends/" + users?._id);
         setFriends(friendList.data);
         console.log(friendList.data);
       }catch(err){
@@ -35,12 +35,12 @@ export default function Rightbar({ users }) {
   const handleClick = async () => {
     try {
       if (followed) {
-        await axios.put(`http://localhost:8800/api/user/${users._id}/unfollow`, {
+        await axios.put(`user/${users._id}/unfollow`, {
           userId: currentUser._id,
         });
         dispatch({ type: "UNFOLLOW", payload: users._id });
       } else {
-        await axios.put(`http://localhost:8800/api/user/${users._id}/follow`, {
+        await axios.put(`user/${users._id}/follow`, {
           userId: currentUser._id,
         });
         dispatch({ type: "FOLLOW", payload: users._id });

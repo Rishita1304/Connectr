@@ -2,7 +2,6 @@ import { useContext, useRef, useState } from "react";
 import "./share.css";
 import {PermMedia, Label,Room, EmojiEmotions, Cancel} from "@material-ui/icons"
 import { AuthContext } from "../../context/AuthContext";
-import axios from "axios";
 import { publicRequest } from "../../Request";
 
 export default function Share() {
@@ -26,13 +25,13 @@ export default function Share() {
       newPost.img = fileName;
       console.log(newPost);
       try{
-        await publicRequest.post("api/upload", data)
+        await publicRequest.post("upload", data)
       }catch(err){
         console.log(err);
       }
     }
     try{
-      await publicRequest.post("api/post", newPost)
+      await publicRequest.post("post", newPost)
       window.location.reload();
     }catch(err){
       console.log(err);

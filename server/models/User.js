@@ -7,14 +7,14 @@ const UserSchema = new mongoose.Schema({
         min: 3,
         max: 20,
         unique: true,
-        // validation: /^[A-Za-z\d]{8,20}$/
+        validation: /^[A-Za-z\d]{8,20}$/
     },
     email: {
         type: String,
         require: true,
         max: 50,
         unique: true,
-        // validation: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        validation: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     },
     password: {
         type:String,

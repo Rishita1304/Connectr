@@ -127,4 +127,17 @@ router.delete("/:id", async (req, res) => {
     }
   });
 
+
+  router.get('/find', async(req,res)=>{
+    try{
+
+      const search = req.query.search || "";
+      const user = await User.find({username: {$regex: search}});
+      res.status(200).json(user);
+    }catch(err){
+      res.status(500).json(err)
+    }
+
+  })
+
 module.exports = router;

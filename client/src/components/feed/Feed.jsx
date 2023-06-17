@@ -12,8 +12,8 @@ export default function Feed({username}) {
   useEffect(()=>{
     const fetchPost = async () => {
       const res = username 
-      ? await publicRequest.get("api/post/profile/" + username) 
-      : await publicRequest.get("api/post/timeline/" + user?._id)
+      ? await publicRequest.get("post/profile/" + username) 
+      : await publicRequest.get("post/timeline/" + user?._id)
       console.log(res);
       setPosts(
         res.data.sort((p1, p2) => {
