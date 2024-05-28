@@ -5,6 +5,7 @@ import Message from '../../components/message/Message'
 import Topbar from '../../components/topbar/Topbar'
 import { AuthContext } from '../../context/AuthContext'
 import './Messenger.css'
+import {io} from 'socket.io-client'
 
 import React, { useContext, useEffect, useRef, useState } from 'react'
 
@@ -17,6 +18,31 @@ const Messenger = () => {
     const {user} = useContext(AuthContext);
     const ScrollRef = useRef()
 
+    // console.log(query);
+
+
+    // const [onlineUsers, setOnlineUsers] = useState(null);
+    // const socket = useRef();
+    // console.log(currentChat);
+
+    // useEffect(()=>{
+    //     socket.current =  io("ws://localhost:8900");
+    //     socket.current.on("getMessage", data => {
+    //         setArrivalMessages({
+    //             sender: data.senderId,
+    //             text: data.text,
+    //             createdAt: Date.now(),
+    //         })
+    //     })
+    // },[]);
+
+
+    // useEffect(()=>{
+    //     socket.current.emit("addUser", user._id)
+    //     socket.current.on("getUsers", users=> {
+    //         setOnlineUsers(user.followings.filter((f)=> users.some((u)=> u.userId === f)))
+    //     })
+    // })
 
     useEffect(()=>{
         arrivalMessages && currentChat?.members.includes(arrivalMessages.sender)
@@ -56,6 +82,14 @@ const Messenger = () => {
             text: newMessages,
             conversationId: currentChat._id
         };
+
+        // const receiverId = currentChat.members.find((member) => member !== user._id)
+
+        // socket.current.emit("sendMessage", {
+        //     senderId: user._id,
+        //     receiverId,
+        //     text: newMessages,
+        // })
 
         try{
             const res = await publicRequest.post("/message", message)

@@ -24,7 +24,7 @@ console.log(user);
         <div className="loginLeft">
           <h3 className="loginLogo">Connectr</h3>
           <div className="loginDesc">
-            Connect with friends and the world around you!
+            Connect with friends, family and the world around you!
           </div>
         </div>
         <div className="loginRight">
