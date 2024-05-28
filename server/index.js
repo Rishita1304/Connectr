@@ -50,6 +50,10 @@ app.post('/api/upload', upload.single('file'), (req,res)=>{
   }
 })
 
+app.get('/', (req,res)=>{
+  res.send(`Server is running on page with port ${port}`);
+})
+
 app.use("/api/auth", authRoute)
 app.use("/api/user", userRoute)
 app.use("/api/post", postRoute)
