@@ -7,8 +7,9 @@ services:
     build: ./client
     ports:
       - 3000:3000
-    environment:
-      REACT_APP_PUBLIC_FOLDER: https://connectrbackend.onrender.com/images/
+    env_file:
+      - path: ./client/.env
+        required: true
     develop:
       watch:
         - path: ./client/package.json
@@ -23,8 +24,9 @@ services:
     build: ./server
     ports: 
       - 8800:8800
-    environment: 
-      MONGO_URL: mongodb+srv://admin:admin123@cluster0.mtpyogh.mongodb.net/myDB
+    env_file:
+      - path: ./server/.env
+        required: true
     
     develop:
       watch:
